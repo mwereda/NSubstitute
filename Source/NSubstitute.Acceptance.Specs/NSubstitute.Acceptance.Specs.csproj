@@ -97,12 +97,17 @@
     <Compile Include="ArgumentInvocationFromMatchers.cs" />
     <Compile Include="ArgDoFromMatcher.cs" />
     <Compile Include="AutoValuesForSubs.cs" />
+    <Compile Include="CallbackCalling.cs" />
     <Compile Include="DynamicCalls.cs" />
     <Compile Include="FieldReports\Issue129_AmbiguousArgsWithOutRef.cs" />
     <Compile Include="FieldReports\Issue149_ArgMatcherInReturns.cs" />
     <Compile Include="FieldReports\Issue170_MultidimensionalArray.cs" />
+    <Compile Include="FieldReports\Issue211_ReceivedInOrderParamsFormatting.cs" />
     <Compile Include="FieldReports\Issue75_DoesNotWorkWithMembersThatUseDynamic.cs" />
     <Compile Include="FieldReports\Issue_RaiseEventOnNonSubstitute.cs" />
+    <Compile Include="FieldReports\Regression_ReceivedClearsStub.cs" />
+    <Compile Include="Infrastructure\FluentSomething.cs" />
+    <Compile Include="Infrastructure\IFluentSomething.cs" />
     <Compile Include="Infrastructure\SomeClass.cs" />
     <Compile Include="PartialSubs.cs" />
     <Compile Include="FieldReports\CallingIntoNewSubWithinReturns.cs" />
@@ -142,6 +147,8 @@
     <Compile Include="OutAndRefParameters.cs" />
     <Compile Include="PerfTests.cs" />
     <Compile Include="RecursiveSubs.cs" />
+    <Compile Include="ReturnsForAllFromFunc.cs" />
+    <Compile Include="ReturnsForAll.cs" />
     <Compile Include="SubbingForEventHandler.cs" />
     <Compile Include="PropertyBehaviour.cs" />
     <Compile Include="ArgumentMatching.cs" />
