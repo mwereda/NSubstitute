@@ -24,6 +24,7 @@ namespace NSubstitute.Acceptance.Specs
             PureVirtualClass VirtualClass { get; set; }
             NonVirtualClass NonVirtualClass { get; set; }
             SealedClass SealedClass { get; set; }
+            IQueryable<int> Queryable();
         }
 
         [SetUp]
@@ -107,6 +108,16 @@ namespace NSubstitute.Acceptance.Specs
             Assert.That(x(_sample).Length, Is.EqualTo(0));
         }
 
+#if NET45 || NETSTANDARD1_5
+        [Test]
+        public void Should_auto_return_for_iqueryable()
+        {
+            var sample = Substitute.For<ISample>();
+            Assert.IsEmpty(sample.Queryable().Select(x => x + 1).ToList());
+            Assert.NotNull(sample.Queryable().Expression);
+        }
+#endif
+
         [Test]
         public void Should_auto_return_a_substitute_from_a_func_that_returns_a_pure_virtual_class()
         {
@@ -137,7 +148,7 @@ namespace NSubstitute.Acceptance.Specs
             AssertObjectIsASubstitute(returnedFromFunc);
         }
 
-#if (NET4 || NET45)
+#if (NET4 || NET45 || NETSTANDARD1_5)
         [Test]
         public void Should_auto_return_a_value_from_a_task() {
             var sub = Substitute.For<IFooWithTasks>();
@@ -161,7 +172,7 @@ namespace NSubstitute.Acceptance.Specs
         }
 #endif
 
-#if NET45
+#if NET45 || NETSTANDARD1_5
         [Test]
         public void Should_auto_return_an_observable() {
             var sub = Substitute.For<IFooWithObservable>();
